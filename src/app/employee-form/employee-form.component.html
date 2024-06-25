@@ -1,0 +1,50 @@
+<section class="get-in-touch">
+  <div class="table-title">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Add New <b>Employee</b></h2>
+      </div>
+   </div>
+  </div>
+  <form class="contact-form row" (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <div class="form-field col-lg-6">
+      <input id="firstName" class="input-text js-input" type="text" [(ngModel)]="employee.firstName" name="firstName" required>
+      <label class="label" for="firstName">First Name</label>
+      <div *ngIf="employeeForm.submitted && !employee.firstName" class="error-message">First Name is required.</div>
+    </div>
+
+    <div class="form-field col-lg-6">
+      <input id="lastName" class="input-text js-input" type="text" [(ngModel)]="employee.lastName" name="lastName" required>
+      <label class="label" for="lastName">Last Name</label>
+      <div *ngIf="employeeForm.submitted && !employee.lastName" class="error-message">Last Name is required.</div>
+    </div>
+
+    <div class="form-field col-lg-6">
+      <input id="email" class="input-text js-input" type="email" [(ngModel)]="employee.email" name="email" required>
+      <label class="label" for="email">Email</label>
+      <div *ngIf="employeeForm.submitted && !employee.email" class="error-message">Email is required.</div>
+    </div>
+
+    <div class="form-field col-lg-6">
+      <input id="phoneNumber" class="input-text js-input" type="tel" [(ngModel)]="employee.phoneNumber" name="phoneNumber" required>
+      <label class="label" for="phoneNumber">Phone Number</label>
+      <div *ngIf="employeeForm.submitted && !employee.phoneNumber" class="error-message">Phone Number is required.</div>
+    </div>
+
+    <div class="form-field col-lg-6">
+      <input id="position" class="input-text js-input" type="text" [(ngModel)]="employee.position" name="position" required>
+      <label class="label" for="position">Position</label>
+      <div *ngIf="employeeForm.submitted && !employee.position" class="error-message">Position is required.</div>
+    </div>
+
+    <div class="form-field col-lg-6">
+      <input id="department" class="input-text js-input" type="text" [(ngModel)]="employee.department" name="department" required>
+      <label class="label" for="department">Department</label>
+      <div *ngIf="employeeForm.submitted && !employee.department" class="error-message">Department is required.</div>
+    </div>
+    <div  class="alert alert-success">{{ message }}</div>
+    <div class="form-field col-lg-12">
+      <button class="submit-btn" type="submit">Add</button>
+    </div>
+  </form>
+</section>
