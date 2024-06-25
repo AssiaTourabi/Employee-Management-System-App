@@ -1,0 +1,20 @@
+/* src/app/navbar/navbar.component.css */
+.navbar {
+  margin-bottom: 20px;
+  background-color: #000;
+  color: #000;
+}
+
+.nav-link {
+  color: #000;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #0056b3;
+}

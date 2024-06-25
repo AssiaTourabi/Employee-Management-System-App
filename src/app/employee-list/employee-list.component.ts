@@ -9,6 +9,8 @@ import { Employee } from '../models/Employee';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
+  showModal = false;
+  employeeIdToDelete: number | null = null;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -18,9 +20,22 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  deleteEmployee(id: number): void { // Change from string to number
-    this.employeeService.deleteEmployee(id).subscribe(() => {
-      this.employees = this.employees.filter(emp => emp.id !== id);
-    });
+  openConfirmDeleteModal(id: number): void {
+    this.employeeIdToDelete = id;
+    this.showModal = true;
+  }
+
+  closeConfirmDeleteModal(): void {
+    this.showModal = false;
+    this.employeeIdToDelete = null;
+  }
+
+  deleteEmployee(): void {
+    if (this.employeeIdToDelete !== null) {
+      this.employeeService.deleteEmployee(this.employeeIdToDelete).subscribe(() => {
+        this.employees = this.employees.filter(emp => emp.id !== this.employeeIdToDelete);
+        this.closeConfirmDeleteModal();
+      });
+    }
   }
 }

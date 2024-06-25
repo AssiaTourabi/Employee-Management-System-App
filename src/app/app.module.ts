@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     EmployeeFormComponent,
     EditEmployeeComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ConfirmDeleteComponent
   ],
   imports: [
     BrowserModule,
